@@ -9,6 +9,7 @@ public class SortTest {
         calculateRunTime(BubbleSort::sort);
         calculateRunTime(InsertionSort::sort);
         calculateRunTime(SelectionSort::sort);
+        calculateRunTime(MergeSort::sort);
     }
 
     private static void calculateRunTime(Function<int[], int[]> sortFunction) {
