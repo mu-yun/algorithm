@@ -17,6 +17,7 @@ public class InsertionSort {
                     break;
                 }
             }
+
             a[j + 1] = value;
         }
         return a;

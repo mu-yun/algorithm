@@ -8,6 +8,7 @@ public class SortTest {
     public static void main(String[] args) {
         calculateRunTime(BubbleSort::sort);
         calculateRunTime(InsertionSort::sort);
+        calculateRunTime(SelectionSort::sort);
     }
 
     private static void calculateRunTime(Function<int[], int[]> sortFunction) {

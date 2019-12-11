@@ -18,6 +18,7 @@ public class BubbleSort {
                     a[j + 1] = temp;
                 }
             }
+
             if (!exchange) {
                 break;
             }
