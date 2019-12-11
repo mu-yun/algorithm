@@ -1,4 +1,4 @@
-package com.muyun.algorithm.homework;
+package com.muyun.algorithm.collection;
 
 public class CircularQueue<T> {
     private Object[] elements;

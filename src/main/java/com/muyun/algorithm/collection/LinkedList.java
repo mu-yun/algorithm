@@ -1,4 +1,4 @@
-package com.muyun.algorithm.homework;
+package com.muyun.algorithm.collection;
 
 /**
  * @author dali.niu
