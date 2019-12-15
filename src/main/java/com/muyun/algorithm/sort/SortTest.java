@@ -10,6 +10,7 @@ public class SortTest {
         calculateRunTime(InsertionSort::sort);
         calculateRunTime(SelectionSort::sort);
         calculateRunTime(MergeSort::sort);
+        calculateRunTime(QuickSort::sort);
     }
 
     private static void calculateRunTime(Function<int[], int[]> sortFunction) {
@@ -18,10 +19,12 @@ public class SortTest {
         int[] a = {1, 3, 2, 5, 4};
         int[] b = {5, 4, 3, 2, 1};
         int[] c = {1, 2, 3, 4, 5};
+        int[] d = {1, 3, 4, 2, 5, 4, 0, 2, 6};
 
         calculateRunTime("One:", a, sortFunction);
         calculateRunTime("Two:", b, sortFunction);
         calculateRunTime("Three:", c, sortFunction);
+        calculateRunTime("Four:", d, sortFunction);
     }
 
     private static void calculateRunTime(String desc, int[] a, Function<int[], int[]> sortFunction) {
