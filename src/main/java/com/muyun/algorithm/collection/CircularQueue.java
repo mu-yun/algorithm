@@ -48,7 +48,7 @@ public class CircularQueue<T> {
     }
 
     private void calculateHead0() {
-        if (head++ == elements.length) {
+        if (++head == elements.length) {
             head = 0;
         }
     }
