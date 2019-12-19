@@ -141,38 +141,24 @@ public class BinarySearch {
         int high = a.length - 1;
         while (low <= high) {
             int mid = low + ((high - low) >> 1);
-            if (a[mid] == high) {
-                return mid;
-            } else {
-                int l = low;
-                int h = high;
-
-                if (a[mid] > a[low]) {
-                    low = mid + 1;
-                    h = mid - 1;
-                } else {
-                    high = mid - 1;
-                    l = mid + 1;
-                }
-
-                int index = search(a, l, h, target);
-                if (index != -1) {
-                    return index;
-                }
-            }
-        }
-        return -1;
-    }
-
-    private static int search(int[] a, int low, int high, int target) {
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
             if (a[mid] == target) {
                 return mid;
-            } else if (a[mid] > target) {
-                high = mid - 1;
+            } else if (a[low] == target) {
+                return low;
+            } else if (a[high] == target) {
+                return high;
+            } else if (a[mid] > a[low]) {
+                if (a[low] < target && a[mid] > target) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
             } else {
-                low = mid + 1;
+                if (a[mid] < target && a[high] > target) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
             }
         }
         return -1;
