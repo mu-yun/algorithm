@@ -6,7 +6,7 @@ package com.muyun.algorithm.collection;
  */
 public class LinkedListOperation {
 
-    public ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null) {
@@ -18,7 +18,7 @@ public class LinkedListOperation {
         return prev;
     }
 
-    public boolean hasCycle(ListNode head) {
+    public static boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
             return false;
         }
@@ -35,7 +35,7 @@ public class LinkedListOperation {
         return true;
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode sentry = new ListNode();
         ListNode curr = sentry;
         while (l1 != null && l2 != null) {
@@ -54,15 +54,57 @@ public class LinkedListOperation {
         return sentry.next;
     }
 
-    class ListNode {
+    //使用快慢指针
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode sentry = new ListNode(0, head);
+        ListNode fast = head;
+        ListNode slow = sentry;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return sentry.next;
+    }
+
+    //使用递归
+    public static ListNode removeNthFromEndByRecursion(ListNode head, int n) {
+        int sort = removeNth(head, n);
+        if (sort == n) {
+            return head.next;
+        }
+        return head;
+    }
+
+    private static int removeNth(ListNode node, int n) {
+        if (node.next == null) {
+            return 1;
+        }
+        int sort = removeNth(node.next, n);
+        if (sort == n) {
+            node.next = node.next.next;
+        }
+        return ++sort;
+    }
+
+    static class ListNode {
         int val;
         ListNode next;
 
         ListNode() {
         }
-        
+
         ListNode(int x) {
             val = x;
+        }
+
+        ListNode(int x, ListNode next) {
+            val = x;
+            next = next;
         }
     }
 
