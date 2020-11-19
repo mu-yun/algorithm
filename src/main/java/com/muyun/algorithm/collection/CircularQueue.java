@@ -16,7 +16,7 @@ public class CircularQueue<T> {
 //        if (count == elements.length) {
 //            return false;
 //        }
-        if ((tail + 1) % head == 0) {
+        if ((tail + 1) % elements.length == head) {
             return false;
         }
         elements[tail] = element;
