@@ -20,11 +20,6 @@ public class BinarySearch {
         System.out.println(searchFirst(b, 6));
         System.out.println(searchLast(b, 6));
 
-        int[] c = {7, 9, 12, 15, 1, 3, 5};
-        System.out.println(searchFromCircularQueue(c, 9));
-        System.out.println(searchFromCircularQueue(c, 1));
-        System.out.println(searchFromCircularQueue(c, 2));
-        System.out.println(searchFromCircularQueue(c, 6));
     }
 
     public static int search(int[] a, int target) {
@@ -128,37 +123,6 @@ public class BinarySearch {
                     return mid;
                 }
                 low = mid + 1;
-            }
-        }
-        return -1;
-    }
-
-    public static int searchFromCircularQueue(int[] a, int target) {
-        if (a == null) {
-            return -1;
-        }
-        int low = 0;
-        int high = a.length - 1;
-        while (low <= high) {
-            int mid = low + ((high - low) >> 1);
-            if (a[mid] == target) {
-                return mid;
-            } else if (a[low] == target) {
-                return low;
-            } else if (a[high] == target) {
-                return high;
-            } else if (a[mid] > a[low]) {
-                if (a[low] < target && a[mid] > target) {
-                    high = mid - 1;
-                } else {
-                    low = mid + 1;
-                }
-            } else {
-                if (a[mid] < target && a[high] > target) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
             }
         }
         return -1;
