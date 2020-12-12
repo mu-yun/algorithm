@@ -1,6 +1,6 @@
 package com.muyun.algorithm.tree;
 
-public class BinaryTreeTraversal {
+public class BinaryTree {
 
     public static void main(String[] args) {
         //TODO
@@ -31,6 +31,13 @@ public class BinaryTreeTraversal {
         postOrderTraversal(node.left);
         postOrderTraversal(node.right);
         System.out.println(node.value);
+    }
+
+    public static <E> int maxDepth(Node<E> node) {
+        if (node == null) {
+            return 0;
+        }
+        return Math.max(maxDepth(node.left), maxDepth(node.right)) + 1;
     }
 
     private static class Node<E> {
